@@ -14,9 +14,9 @@ class BlogType(str, Enum):
     short = 'short'
     long = 'long'
 
-# @app.get("/blog/{type}")
-# async def get_blog(type: BlogType):
-#     return {"message": f"this is {type}"}
+@router.get("/blog/{type}")
+async def get_blog_type(type: BlogType):
+    return {"message": f"this is {type}"}
 
 
 @router.get('/blog/all', description='this is description in the parentheses')
