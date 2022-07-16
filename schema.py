@@ -11,5 +11,6 @@ class UserDisplay(BaseModel):
     username: str
     email: str
 
-    class Config():
+    # below class convert data of database to require(above) format
+    class Config:
         orm_mode = True

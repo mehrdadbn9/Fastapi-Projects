@@ -11,7 +11,7 @@ router = APIRouter(
 )
 
 
-# Create user
+# Create user that  automatically convert database to display mode because of "class config"
 @router.post('/', response_model=UserDisplay)
 def create_user(request: UserBase, db: Session = Depends(get_db)):
     return db_user.create_user(db, request)

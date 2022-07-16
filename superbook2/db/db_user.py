@@ -1,4 +1,3 @@
-# from db.hash import Hash
 from sqlalchemy.orm.session import Session
 from schema import UserBase
 from superbook2.db.hash import Hash
@@ -7,9 +6,9 @@ from superbook2.db.models import DbUser
 
 def create_user(db: Session, request: UserBase):
   new_user = DbUser(
-    username = request.username,
-    email = request.email,
-    password = Hash.bcrypt(request.password)
+    username=request.username,
+    email=request.email,
+    password=Hash.bcrypt(request.password)
   )
   db.add(new_user)
   db.commit()
