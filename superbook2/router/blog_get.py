@@ -1,6 +1,8 @@
 from enum import Enum
 from typing import Optional
-from fastapi import APIRouter, status, Response
+from fastapi import APIRouter, status, Response, Depends
+
+from superbook2.router.blog_post import require_functionality
 
 router = APIRouter(
     prefix='/blog',
@@ -19,8 +21,8 @@ class BlogType(str, Enum):
 
 @router.get('/blog/all', description='this is description in the parentheses')
 #query params
-async def get_blogs(page=1, page_Size: Optional[int] = None):
-    return {'message': f"all page_size {page_Size} and currently you are in the page {page}"}
+async def get_blogs(page=1, page_Size: Optional[int] = None, req_parameter: dict = Depends(require_functionality)):
+    return {'message': f"all page_size {page_Size} and currently you are in the page {page}", 'req_param': req_parameter}
 
 
 @router.get("/{id}", status_code=status.HTTP_200_OK, tags=['single_page'])

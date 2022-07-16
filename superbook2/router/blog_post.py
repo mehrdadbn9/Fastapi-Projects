@@ -29,3 +29,7 @@ def create_comment(blog: BlogModel, id: int,
                    comment_id: int = Query(None, title='this is id comment', description="some description",
                                            alias='commentId', deprecated=True)):
     return {'blog': blog, "id": id, "comment_id": comment_id}
+
+
+def require_functionality():
+    return 'this is required parameters'

@@ -1,5 +1,8 @@
 from fastapi import FastAPI
 # from starlette.responses import Response
+# from sqlalchemy.engine import Engine
+from superbook2.db import models
+from superbook2.db.database import engine
 from superbook2.router import blog_get
 from superbook2.router import blog_post
 
@@ -14,3 +17,5 @@ async def root():
     this is **description in the def**
     """
     return {"message": "Hello World"}
+
+models.Base.metadata.create_all(engine)
