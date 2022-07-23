@@ -1,8 +1,7 @@
-from typing import List
-from schema import ArticleBase, ArticleDisplay, UserBase
+from schema import ArticleBase, ArticleDisplay
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from superbook2.db.database import get_db
+from superbook2.database import get_db
 from superbook2.db import db_article
 
 router = APIRouter(
