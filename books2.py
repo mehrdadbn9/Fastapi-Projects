@@ -27,7 +27,7 @@ class Book(BaseModel):
             "example": {
                 "id": "11f4c2ea-1340-41f4-89f7-2852347bb0d1",
                 "title": "Computer Science Pro",
-                "author": "Codingwithroby",
+                "author": "mehrdad biukian",
                 "description": "A very nice description of a book",
                 "rating": 75
             }
